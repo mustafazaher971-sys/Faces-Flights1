@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faces Flights - حجز طيران</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap');
+        body { 
+            font-family: 'Cairo', sans-serif; 
+            background-image: linear-gradient(to bottom, rgba(9, 9, 11, 0.88), rgba(9, 9, 11, 0.95)), url('خلفيه الموقع.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .gold-gradient {
+            background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
+        }
+        .gold-text {
+            background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="text-slate-100 min-h-screen flex flex-col justify-between">
+
+    <!-- Header / Navigation -->
+    <header class="bg-black/90 backdrop-blur-md border-b border-amber-500/30 sticky top-0 z-40">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3 space-x-reverse text-2xl font-black cursor-pointer" onclick="showPage('home-page')">
+                <i class="fa-solid fa-plane-departure text-amber-400"></i>
+                <span class="gold-text font-extrabold text-2xl">Faces Flights</span>
+            </div>
+            <nav class="flex items-center space-x-2 md:space-x-4 space-x-reverse font-semibold">
+                <button onclick="showPage('home-page')" class="text-slate-300 hover:text-amber-400 transition px-2 py-1 text-sm md:text-base">الرئيسية</button>
+                <button onclick="showPage('new-clients-page')" class="text-amber-300 hover:text-amber-200 border border-amber-500/40 rounded-lg px-3 py-1.5 transition text-sm md:text-base flex items-center gap-1">
+                    <i class="fa-solid fa-user-plus text-xs"></i>
+                    <span>عملاء جدد</span>
+                </button>
+                <button onclick="showPage('booking-page')" class="gold-gradient text-black font-bold px-4 py-2 rounded-lg transition hover:brightness-110 shadow-lg shadow-amber-500/10 text-sm md:text-base">حجز رحلة</button>
+                <!-- خدمة العملاء المباشرة -->
+                <a href="https://wa.me/201271597291?text=مرحباً%20Faces%20Flights%D8%8C%20أريد%20الاستفسار%20عن%20حجوزات%20الطيران" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-2 rounded-lg transition flex items-center gap-2 text-sm md:text-base">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span class="hidden md:inline">خدمة العملاء</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page 1: Home Page -->
+    <section id="home-page" class="flex-grow py-10 px-4">
+        <div class="max-w-4xl mx-auto text-center space-y-8">
+            
+            <div class="space-y-3">
+                <h1 class="text-3xl md:text-5xl font-black tracking-wide">
+                    عروض <span class="gold-text">Faces Flights</span> لحجز الطيران
+                </h1>
+                <p class="text-slate-300 text-lg">اضغط على إعلان البانر للانتقال فوراً لصفحة الحجز</p>
+            </div>
+
+            <!-- Clickable Banner Image Container -->
+            <div onclick="showPage('booking-page')" class="relative group cursor-pointer overflow-hidden rounded-3xl border-2 border-amber-500/40 hover:border-amber-400 transition-all duration-300 shadow-2xl shadow-amber-500/10 max-w-xl mx-auto">
+                <img src="خلفيه الموقع.png" alt="Faces Flights" class="w-full h-auto object-cover transform group-hover:scale-105 transition duration-500">
+                <div class="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition flex items-center justify-center">
+                    <span class="gold-gradient text-black font-black px-8 py-3 rounded-full text-lg shadow-2xl transform group-hover:scale-110 transition">
+                        احجز رحلتك الآن <i class="fa-solid fa-arrow-left mr-2"></i>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Features & Support Contact -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8">
+                <a href="https://wa.me/201271597291" target="_blank" class="bg-zinc-900/90 p-6 rounded-2xl border border-amber-500/30 text-center space-y-2 hover:border-emerald-500 transition">
+                    <i class="fa-brands fa-whatsapp text-3xl text-emerald-400"></i>
+                    <h3 class="font-bold text-lg text-slate-100">خدمة العملاء المباشرة</h3>
+                    <p class="text-xs text-slate-400">تواصل معنا فوراً على 01271597291</p>
+                </a>
+                <div onclick="showPage('new-clients-page')" class="bg-zinc-900/90 p-6 rounded-2xl border border-amber-500/30 text-center space-y-2 cursor-pointer hover:border-amber-400 transition">
+                    <i class="fa-solid fa-gift text-3xl text-amber-400"></i>
+                    <h3 class="font-bold text-lg text-slate-100">قسم العملاء الجدد</h3>
+                    <p class="text-xs text-slate-400">سجل كعميل جديد واحصل على خصم خاص</p>
+                </div>
+                <div class="bg-zinc-900/90 p-6 rounded-2xl border border-amber-500/30 text-center space-y-2">
+                    <i class="fa-solid fa-bolt text-3xl text-amber-400"></i>
+                    <h3 class="font-bold text-lg text-slate-100">تأكيد فوري للرحلات</h3>
+                    <p class="text-xs text-slate-400">إرسال تفاصيل التذكرة مباشرة عبر الواتساب</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Page 2: New Clients Section -->
+    <section id="new-clients-page" class="hidden flex-grow py-12 px-4">
+        <div class="max-w-2xl mx-auto bg-zinc-900/90 p-8 rounded-3xl border border-amber-500/40 shadow-2xl backdrop-blur-md">
+            <div class="text-center space-y-3 mb-8">
+                <div class="inline-block bg-amber-500/10 text-amber-400 border border-amber-500/30 px-4 py-1.5 rounded-full text-xs font-bold mb-2">
+                    🎁 مرحباً بك في Faces Flights
+                </div>
+                <h2 class="text-3xl font-black gold-text">قسم العملاء الجدد</h2>
+                <p class="text-slate-300 text-sm">سجل بياناتك كعميل جديد واستفد من خصم خاص وتأكيد أولوية الحجز</p>
+            </div>
+
+            <form id="new-client-form" onsubmit="handleNewClientSubmit(event)" class="space-y-6">
+                <div>
+                    <label class="block text-sm font-bold text-amber-400 mb-2">الاسم بالكامل</label>
+                    <input type="text" id="new-client-name" required placeholder="أدخل اسمك الكريم" class="w-full px-4 py-3 rounded-xl bg-zinc-950 border border-zinc-800 text-slate-100 focus:outline-none focus:border-amber-500 transition">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-amber-400 mb-2">رقم الواتساب</label>
+                    <input type="tel" id="new-client-phone" required placeholder="01271597291" class="w-full px-4 py-3 rounded-xl bg-zinc-950 border border-zinc-800 text-slate-100 focus:outline-none focus:border-amber-500 text-left dir-ltr transition">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-amber-400 mb-2">وجهة السفر المفضلة / الدولة</label>
+                    <input type="text" id="new-client-destination" placeholder="مثال: السعودية، الإمارات، تركيا، أوروبا..." class="w-full px-4 py-3 rounded-xl bg-zinc-950 border border-zinc-800 text-slate-100 focus:outline-none focus:border-amber-500 transition">
+                </div>
+
+                <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-black py-4 rounded-xl shadow-lg transition text-lg flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-2xl"></i>
+                    تسجيل وتفعيل خصم العميل الجديد
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Page 3: Booking Page -->
+    <section id="booking-page" class="hidden flex-grow py-12 px-4">
+        <div class="max-w-2xl mx-auto bg-zinc-900/90 p-8 rounded-3xl border border-amber-500/40 shadow-2xl backdrop-blur-md">
+            
+            <div class="text-center space-y-2 mb-8">
+                <h2 class="text-3xl font-black gold-text">استمارة حجز الطيران</h2>
+                <p class="text-slate-300 text-sm">Faces Flights - سيتم توجيه بياناتك فوراً عبر الواتساب لتأكيد الرحلة</p>
+            </div>
+
+            <form id="flight-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                <!-- Is New Customer Checkbox -->
+                <div class="bg-amber-500/10 border border-amber-500/30 p-4 rounded-xl flex items-center justify-between">
+                    <label for="is-new-customer" class="text-sm font-bold text-amber-300 cursor-pointer flex items-center gap-2">
+                        <i class="fa-solid fa-star"></i>
+                        هل هذه أول مرة تحجز معنا؟ (عميل جديد)
+                    </label>
+                    <input type="checkbox" id="is-new-customer" class="w-5 h-5 accent-amber-500 rounded cursor-pointer">
+                </div>
+
+                <!-- Name Field -->
+                <div>
+                    <label class="block text-sm font-bold text-amber-400 mb-2">الاسم بالكامل</label>
+                    <input type="text" id="user-name" required placeholder="أدخل اسمك كما هو في جواز السفر" class="w-full px-4 py-3 rounded-xl bg-zinc-950 border border-zinc-800 text-slate-100 focus:outline-none focus:border-amber-500 transition">
+                </div>
+
+                <!-- WhatsApp Field -->
+                <div>
+                    <label class="block text-sm font-bold text-amber-400 mb-2">رقم الواتساب الخاص بك</label>
+                    <input type="tel" id="user-phone" required placeholder="مثال: 01271597291" class="w-full px-4 py-3 rounded-xl bg-zinc-950 border border-zinc-800 text-slate-100 focus:outline-none focus:border-amber-500 text-left dir-ltr transition">
+                </div>
+
+                <!-- Date & Day Selection -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-bold text-amber-400 mb-2">تاريخ السفر</label>
+                        <input type="date" id="flight-date" required class="w-full px-4 py-3 rounded-xl bg-zinc-950 border border-zinc-800 text-slate-100 focus:outline-none focus:border-amber-500 transition">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-amber-400 mb-2">يوم السفر</label>
+                        <select id="flight-day" required class="w-full px-4 py-3 rounded-xl bg-zinc-950 border border-zinc-800 text-slate-100 focus:outline-none focus:border-amber-500 transition">
+                            <option value="" disabled selected class="text-slate-500">اختر اليوم</option>
+                            <option value="السبت">السبت</option>
+                            <option value="الأحد">الأحد</option>
+                            <option value="الإثنين">الإثنين</option>
+                            <option value="الثلاثاء">الثلاثاء</option>
+                            <option value="الأربعاء">الأربعاء</option>
+                            <option value="الخميس">الخميس</option>
+                            <option value="الجمعة">الجمعة</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Passengers Count & Payment Method -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-bold text-amber-400 mb-2">عدد الأفراد</label>
+                        <input type="number" id="passengers" min="1" max="10" value="1" required class="w-full px-4 py-3 rounded-xl bg-zinc-950 border border-zinc-800 text-slate-100 focus:outline-none focus:border-amber-500 transition">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-amber-400 mb-2">طريقة الدفع الفضلى</label>
+                        <select id="payment-method" required class="w-full px-4 py-3 rounded-xl bg-zinc-950 border border-zinc-800 text-slate-100 focus:outline-none focus:border-amber-500 transition">
+                            <option value="محفظة إلكترونية (فودافون كاش)">محفظة إلكترونية (فودافون كاش)</option>
+                            <option value="بطاقة إئتمان (Visa/Mastercard)">بطاقة إئتمان (Visa/MasterCard)</option>
+                            <option value="الدفع في المكتب">الدفع نقداً في المكتب</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="w-full gold-gradient text-black font-black py-4 rounded-xl shadow-lg hover:brightness-110 transition text-lg flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-2xl text-emerald-950"></i>
+                    تأكيد وإرسال عبر الواتساب
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Confirmation Modal Pop-up -->
+    <div id="confirmation-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-4 z-50">
+        <div class="bg-zinc-900 border border-amber-500/40 rounded-3xl max-w-md w-full p-6 shadow-2xl text-center space-y-5">
+            <div class="w-16 h-16 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 rounded-full flex items-center justify-center mx-auto text-3xl">
+                <i class="fa-brands fa-whatsapp"></i>
+            </div>
+            
+            <div>
+                <h3 class="text-2xl font-black gold-text mb-1">جاهز للإرسال إلى Faces Flights!</h3>
+                <p class="text-xs text-slate-400">اضغط على الزر بالأسفل لفتح المحادثة وإرسال تفاصيل حجزك مباشرة.</p>
+            </div>
+
+            <!-- Ticket Summary -->
+            <div class="bg-zinc-950 p-4 rounded-2xl text-right text-sm space-y-2 border border-zinc-800">
+                <div class="flex justify-between"><span class="text-slate-400">الاسم:</span> <span id="summary-name" class="font-bold text-amber-300"></span></div>
+                <div class="flex justify-between"><span class="text-slate-400">نوع العميل:</span> <span id="summary-client-type" class="font-bold text-amber-400"></span></div>
+                <div class="flex justify-between"><span class="text-slate-400">الواتساب:</span> <span id="summary-phone" class="font-bold text-slate-200 dir-ltr"></span></div>
+                <div class="flex justify-between"><span class="text-slate-400">الموعد:</span> <span id="summary-date" class="font-bold text-slate-200"></span></div>
+                <div class="flex justify-between"><span class="text-slate-400">عدد الأفراد:</span> <span id="summary-passengers" class="font-bold text-slate-200"></span></div>
+                <div class="flex justify-between"><span class="text-slate-400">الدفع:</span> <span id="summary-payment" class="font-bold text-slate-200"></span></div>
+            </div>
+
+            <button id="send-whatsapp-btn" onclick="sendToWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-black py-3 rounded-xl transition flex items-center justify-center gap-2">
+                <i class="fa-brands fa-whatsapp text-xl"></i>
+                إرسال الرسالة الآن
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-black/90 border-t border-zinc-800 py-6 text-center text-xs text-slate-400 space-y-2 mt-12">
+        <p>© 2026 جميع الحقوق محفوظة - Faces Flights لحجز الطيران</p>
+        <p>خدمة العملاء والواتساب: <a href="https://wa.me/201271597291" class="text-amber-400 underline dir-ltr">01271597291</a></p>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // رقم الواتساب الجديد الخاص بـ Faces Flights
+        const companyWhatsAppNumber = "201271597291";
+        let whatsappMessage = "";
+
+        function showPage(pageId) {
+            document.getElementById('home-page').classList.add('hidden');
+            document.getElementById('booking-page').classList.add('hidden');
+            document.getElementById('new-clients-page').classList.add('hidden');
+            document.getElementById(pageId).classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // تسجيل العميل الجديد
+        function handleNewClientSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('new-client-name').value;
+            const phone = document.getElementById('new-client-phone').value;
+            const dest = document.getElementById('new-client-destination').value || "غير محددة";
+
+            const msg = `مرحباً Faces Flights ✈️✨%0A` +
+                `أنا عميل جديد وأرغب في التسجيل والاستفسار عن العروض المتاحة:%0A%0A` +
+                `👤 *اسم العميل:* ${encodeURIComponent(name)}%0A` +
+                `📞 *رقم الواتساب:* ${encodeURIComponent(phone)}%0A` +
+                `🌍 *الوجهة المطلوبة:* ${encodeURIComponent(dest)}%0A%0A` +
+                `برجاء تزويدي بأفضل أسعار التذاكر والخصم الخاص بالعملاء الجدد.`;
+
+            window.open(`https://api.whatsapp.com/send?phone=${companyWhatsAppNumber}&text=${msg}`, '_blank');
+            document.getElementById('new-client-form').reset();
+            showPage('home-page');
+        }
+
+        // حجز الرحلة
+        function handleFormSubmit(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('user-name').value;
+            const phone = document.getElementById('user-phone').value;
+            const date = document.getElementById('flight-date').value;
+            const day = document.getElementById('flight-day').value;
+            const passengers = document.getElementById('passengers').value;
+            const payment = document.getElementById('payment-method').value;
+            const isNew = document.getElementById('is-new-customer').checked;
+
+            const clientTypeTag = isNew ? "🌟 عميل جديد (أول مرة)" : "عميل حالي";
+
+            // تحديث شاشة العرض
+            document.getElementById('summary-name').textContent = name;
+            document.getElementById('summary-client-type').textContent = clientTypeTag;
+            document.getElementById('summary-phone').textContent = phone;
+            document.getElementById('summary-date').textContent = `${day} (${date})`;
+            document.getElementById('summary-passengers').textContent = `${passengers} أفراد`;
+            document.getElementById('summary-payment').textContent = payment;
+
+            // نص الرسالة
+            whatsappMessage = `مرحباً Faces Flights ✈️%0A` +
+                `أرغب في تأكيد حجز رحلة طيران جديدة بالتفاصيل التالية:%0A%0A` +
+                `✨ *نوع العميل:* ${encodeURIComponent(clientTypeTag)}%0A` +
+                `👤 *اسم المسافر:* ${encodeURIComponent(name)}%0A` +
+                `📞 *رقم الواتساب للتأكيد:* ${encodeURIComponent(phone)}%0A` +
+                `🗓 *تاريخ السفر:* ${encodeURIComponent(day)} الموافق (${encodeURIComponent(date)})%0A` +
+                `👥 *عدد المسافرين:* ${encodeURIComponent(passengers)}%0A` +
+                `💳 *طريقة الدفع المحددة:* ${encodeURIComponent(payment)}%0A%0A` +
+                `برجاء إرسال تفاصيل التذاكر والأسعار لتأكيد الحجز. شكراً لكم!`;
+
+            document.getElementById('confirmation-modal').classList.remove('hidden');
+        }
+
+        function sendToWhatsApp() {
+            const whatsappUrl = `https://api.whatsapp.com/send?phone=${companyWhatsAppNumber}&text=${whatsappMessage}`;
+            window.open(whatsappUrl, '_blank');
+
+            document.getElementById('confirmation-modal').classList.add('hidden');
+            document.getElementById('flight-form').reset();
+            showPage('home-page');
+        }
+    </script>
+</body>
+</html>
